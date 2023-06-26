@@ -1,13 +1,23 @@
 import random
 import time
 import sys
-
 deck = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, "King", "Queen", "Jack"]
 
-print("Welcome to blackjack!!")
+
+print("####  #          #      ####  #   #   ####      #      ####  #  #")
+print("#  #  #         # #     #     #  #       #     # #     #     # #")
+print("####  #        #####    #     # #        #    #####    #     ##")
+print("#  #  #       #     #   #     #  #    #  #   #     #   #     #  #")
+print("####  #####  #       #  ####  #   #    # #  #       #  ####  #   #")
+print("--------------------------------------------------------------------------")
+
+
+print("Welcome to Blackjack!!")
 time.sleep(1)
 print("The dealer will deal the cards now.")
+print("-------------------------------------------------------------------------")
 time.sleep(1)
+
 
 player_hand = []
 dealer_hand = []
@@ -91,22 +101,36 @@ def deal_first_cards():
                 print("Dealer now has " + str(newdealer_total))
                 time.sleep(1)
 
+            newdealerX_total = 0
+            for i in dealer_hand:
+                if i == "King" or i == "Jack" or i == "Queen":
+                    newdealerX_total += 10
+                elif i == "Ace":
+                    newdealerX_total += 11
+                else:
+                    newdealerX_total += int(i)
 
 
-                if newdealer_total > newtotal and newdealer_total < 22:
-                    print("Dealer wins")
-                    time.sleep(1)
-                    sys.exit()
+            if newtotal < newdealerX_total < 22:
+                print("Dealer wins")
+                time.sleep(1)
+                sys.exit()
 
-                elif newdealer_total == 21:
-                    print("Dealer wins")
+            elif newtotal > newdealerX_total:
+                print("YOU WIN!!")
+                time.sleep(1)
+                sys.exit()
+
+            elif newdealerX_total == 21:
+                print("Dealer wins")
+                sys.exit()
 
 
-                elif newdealer_total >= 22:
-                    print("YOU WIN!!")
-                    time.sleep(1)
-                    sys.exit()
-                break
+            elif newdealerX_total >= 22:
+                print("YOU WIN!!")
+                time.sleep(1)
+                sys.exit()
+            break
 
 
 
