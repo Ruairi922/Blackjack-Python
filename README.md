@@ -6,6 +6,4 @@ If dealers hand is more than users total but less than 22 the dealer wins.
 
 
 
-Update: Had trouble getting the dealer to pull more than 3 cards without creating an infinite loop.
-        Dealer can only pull a max of 3 cards.
-        Any tips is appreciated.
+
